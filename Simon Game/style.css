@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body{
+    margin: 0;
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    background-color: #011F3F;
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 50px;
+    }
+    
+    h2,h3 {
+        font-size: 1.2rem;
+        margin-top: 50px;
+    }
+
+    #play-btn {
+        font-size: 36px;
+        padding: 20px 40px;
+        background-color: #4CAF50;
+        border-radius: 50px;
+        color: white;
+        cursor: pointer;
+        margin-top: 10px;
+
+        &:hover {
+        background-color: #45a049;
+        transform: scale(1.05);
+        }
+    }
+}
+
+#game-description {
+    font-size: 1rem;
+    margin: 15px 0;
+    color: #ccc;
+    font-style: italic;
+}
+
+.btn-cont{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+
+    .btn{
+        height: 200px;
+        width: 200px;
+        border: 8px solid black;
+        border-radius: 20%;
+        box-shadow: 0 5px rgba(0, 0, 0, 0.6);
+        margin: 1rem;
+        transition: transform 0.1s, background-color 0.2s;
+    }
+    .btn:active {
+        transform: scale(0.9);
+    }
+
+    .red {
+        background-color: #d95980;
+    }
+    .green {
+        background-color: #63aac0;
+    }
+    
+    .yellow {
+        background-color: #f99b45;
+    }
+    
+    .purple {
+        background-color: #819ff9;
+    }
+
+    .flash {
+        background-color: white;
+    }
+
+    .pressed {
+        box-shadow: 0 0 20px white;
+        background-color: grey;
+      }
+
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 2.5rem;
+        }
+    
+        h2 {
+            font-size: 1rem;
+        }
+
+        .btn {
+            margin: 0.5rem;
+            width: 120px;
+            height: 120px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        h1 {
+            font-size: 2rem;
+        }
+    
+        h2 {
+            font-size: 0.9rem;
+        }
+    
+        .btn {
+            margin: 0.2rem;
+            width: 90px;
+            height: 90px;
+        }
+
+    }
+}
+
+footer {
+    background-color: #000;
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 5px;
+}
+

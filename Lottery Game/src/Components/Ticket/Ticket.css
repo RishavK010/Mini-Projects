@@ -1,0 +1,10 @@
+.ticket {
+  border: 3px solid var(--secondary);
+    border-radius: 10px;
+    margin: 20px 0;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    background: #ffe9e4;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }

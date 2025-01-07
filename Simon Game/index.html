@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon Game</title>
+    <link rel="stylesheet" href="style.css"/>
+    
+</head>
+<body>
+    <header>
+        <h1>Simon Game</h1>
+        <p id="game-description">
+            Test your memory! Watch the sequence and repeat it. Each level gets harder. 
+            Can you beat your high score?
+        </p>
+        <h2>Press any key to start the game!</h2>
+        <button id="play-btn">Play</button>
+        <h3>Highest Score: <span id="high-score">0</span> </h3>
+    </header>
+
+    <div class="btn-cont">
+        <div class="line-one">
+            <div class="btn red" type="button" id="red"></div>
+            <div class="btn yellow" type="button" id="yellow"></div>
+        </div>
+        <div class="line-two">
+            <div class="btn green" type="button" id="green"></div>
+            <div class="btn purple" type="button" id="purple"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Created with &hearts; by Rishav</p>
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>
