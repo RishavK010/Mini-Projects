@@ -25,8 +25,7 @@ A sleek, interactive, and responsive Todo List Application built with React.js. 
 
 1. Clone this repository
 ```bash
-git clone https://github.com/RishavK010/TodoList.git
-cd TodoList
+git clone https://github.com/RishavK010/Mini-Projects.git
 ```
 2. Install dependencies:
 ```bash
@@ -41,7 +40,7 @@ npm run dev
 http://localhost:5173
 ```
 ### Live Demo
-https://todo-list-lime-nine.vercel.app/
+https://mini-projects-rishav-kamals-projects.vercel.app/
     
 ### 🤝 Contributions
 
