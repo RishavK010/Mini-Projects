@@ -1,0 +1,31 @@
+.todo-button {
+  padding: 12px 20px;
+  background-color: #646cff;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  margin: 5px;
+}
+
+.todo-button:hover {
+  background-color: #535bf2;
+}
+
+.delete-button {
+  background-color: #ff6b6b;
+}
+
+.delete-button:hover {
+  background-color: #ff4c4c;
+}
+
+.mark-button {
+  background-color: #4caf50;
+}
+
+.mark-button:hover {
+  background-color: #45a049;
+}
