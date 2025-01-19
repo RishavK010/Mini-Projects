@@ -21,30 +21,9 @@ A sleek, interactive, and responsive Todo List Application built with React.js. 
 
 - **localStorage:** To save tasks persistently.
 
-## 💻 Installation 
-
-1. Clone this repository
-```bash
-git clone https://github.com/RishavK010/Mini-Projects.git
-```
-2. Install dependencies:
-```bash
-npm install
-```
-3. Run the application:
-```bash
-npm run dev
-```
-4. Open the app in your browser at:
-```bash
-http://localhost:5173
-```
 ### Live Demo
 https://mini-projects-rishav-kamals-projects.vercel.app/
     
-### 🤝 Contributions
-
-Feel free to fork the repository, open issues, or submit pull requests to improve the application!
 
 ## Screenshots
 
