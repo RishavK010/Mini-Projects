@@ -1,6 +1,6 @@
 import { BsThermometer, BsWater } from "react-icons/bs";
 
-function WeatherDetails({ data }) {
+export default function WeatherDetails({ data }) {
     return (
         <div className="mt-10 space-y-4">
             <div className="flex justify-between">
