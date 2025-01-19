@@ -31,7 +31,6 @@ https://weather-api-sepia-eta.vercel.app/
 
 ![App Screenshot](https://github.com/RishavK010/Mini-Projects/blob/f8c8a1a45f5e556e69ccacd25e65555633ce673c/Weather%20App/public/Screenshot%202025-01-19%20at%203.45.41%E2%80%AFPM.png)
 
-
 ---
 
 ### Set up the OpenWeatherMap API:
