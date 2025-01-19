@@ -19,6 +19,7 @@ Weather App is a weather forecasting application built with React.js, providing 
 - **Icons**: React Icons (e.g., `IoMdSearch`, `ImSpinner8`)
 
 ### Live Demo
+https://weather-api-sepia-eta.vercel.app/
 
 
 ### Set up the OpenWeatherMap API:
