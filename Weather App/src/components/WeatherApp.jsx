@@ -203,7 +203,9 @@ function WeatherApp() {
                     <div className="flex justify-end gap-4 mb-6">
                         <button
                             onClick={() => setDarkMode(prev => !prev)}
-                            className="px-4 py-2 rounded-lg bg-white/10 backdrop-blur-md hover:bg-white/20 transition-all"
+                            className={`px-4 py-2 rounded-lg backdrop-blur-md transition-all
+                                ${darkMode ? 'bg-white/20 hover:bg-white/30' : 'bg-gray-800/20 hover:bg-gray-800/30'} text-white`}
+                            style={{ fontWeight: 600 }}
                         >
                             {darkMode ? '☀️ Light' : '🌙 Dark'}
                         </button>
@@ -222,7 +224,7 @@ function WeatherApp() {
                     />
 
                     {loading ? (
-                        <LoadingSkeleton />
+                        <LoadingSkeleton darkMode={darkMode} />
                     ) : (
                         <div className="space-y-6">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -232,7 +234,11 @@ function WeatherApp() {
                                         formatTemp={formatTemp}
                                         onFavorite={handleToggleFavorite}
                                         isFavorite={weatherData ? isFavorite(weatherData.city) : false}
+                                        darkMode={darkMode}
                                     />
+                                    {weatherData && (
+                                        <div className={`text-xs mt-2 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>Last updated: {weatherData.date}</div>
+                                    )}
                                 </div>
                                 
                                 {weatherData && (
@@ -241,6 +247,8 @@ function WeatherApp() {
                                             lat={weatherData.coords.lat}
                                             lon={weatherData.coords.lon}
                                             darkMode={darkMode}
+                                            city={weatherData.city}
+                                            weather={weatherData.weather}
                                         />
                                     </div>
                                 )}

@@ -58,11 +58,11 @@ function WeatherTabs({ hourlyData, weeklyData, formatTemp, darkMode }) {
     axisLine: false,
     tickLine: false,
     tick: { 
-      fill: darkMode ? '#fff' : '#2D3748', 
+      fill: '#fff',
       fontSize: 14,
       fontWeight: 500
     },
-    stroke: darkMode ? '#ffffff33' : '#2D374833',
+    stroke: '#ffffff33',
     height: 60
   };
 
@@ -75,7 +75,7 @@ function WeatherTabs({ hourlyData, weeklyData, formatTemp, darkMode }) {
       padding: '12px',
       boxShadow: '0 4px 6px rgba(0, 0, 0, 0.2)',
       fontSize: '14px',
-      color: darkMode ? '#fff' : '#000'
+      color: darkMode ? '#fff' : '#1a1a1a'
     },
     formatter: (value, name) => {
       switch (name) {
@@ -94,7 +94,7 @@ function WeatherTabs({ hourlyData, weeklyData, formatTemp, darkMode }) {
       strokeWidth: 2
     },
     labelStyle: { 
-      color: darkMode ? '#fff' : '#000',
+      color: darkMode ? '#fff' : '#1a1a1a',
       fontWeight: '600',
       marginBottom: '8px'
     },
@@ -105,15 +105,15 @@ function WeatherTabs({ hourlyData, weeklyData, formatTemp, darkMode }) {
     axisLine: false,
     tickLine: false,
     tick: { 
-      fill: darkMode ? '#fff' : '#2D3748',
+      fill: '#fff',
       fontSize: 12
     },
-    stroke: darkMode ? '#ffffff33' : '#2D374833'
+    stroke: '#ffffff33'
   };
 
   const gridProps = {
     strokeDasharray: "3 3",
-    stroke: darkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(45, 55, 72, 0.1)',
+    stroke: darkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(26, 26, 26, 0.1)',
     vertical: false
   };
 
@@ -213,8 +213,10 @@ function WeatherTabs({ hourlyData, weeklyData, formatTemp, darkMode }) {
             onClick={() => setActiveTab(tab.id)}
             className={`flex items-center gap-2 px-4 py-2 rounded-lg ${
               activeTab === tab.id 
-                ? `bg-${tab.bgColor} text-white` 
-                : `text-${darkMode ? 'gray-300' : 'gray-700'} hover:text-${darkMode ? 'white' : 'gray-900'}`
+                ? 'text-white' 
+                : darkMode 
+                    ? 'text-gray-300 hover:text-white' 
+                    : 'text-white/80 hover:text-white'
             }`}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
@@ -226,7 +228,7 @@ function WeatherTabs({ hourlyData, weeklyData, formatTemp, darkMode }) {
           >
             <tab.icon
               className="text-xl"
-              style={{ color: activeTab === tab.id ? tab.color : 'inherit' }}
+              style={{ color: activeTab === tab.id ? tab.color : (darkMode ? '#fff' : 'rgba(255,255,255,0.8)') }}
             />
             <span className="hidden sm:inline font-medium">{tab.label}</span>
           </motion.button>
@@ -257,8 +259,10 @@ function WeatherTabs({ hourlyData, weeklyData, formatTemp, darkMode }) {
             className={`relative overflow-hidden p-6 rounded-xl ${
               darkMode 
                 ? 'bg-slate-800/40 hover:bg-slate-800/60' 
-                : 'bg-blue-50/50 hover:bg-blue-50/70'
-            } backdrop-blur-md shadow-lg transition-all duration-100 ease-in-out`}
+                : 'bg-white/40 hover:bg-white/60'
+            } backdrop-blur-md shadow-lg transition-all duration-100 ease-in-out border ${
+              darkMode ? 'border-slate-700/50' : 'border-white/50'
+            }`}
           >
             {/* Day Name */}
             <p className={`text-lg font-semibold mb-3 ${
@@ -280,7 +284,7 @@ function WeatherTabs({ hourlyData, weeklyData, formatTemp, darkMode }) {
                 {formatTemp(day.tempMax)}
               </p>
               <p className={`text-base ${
-                darkMode ? 'text-gray-300' : 'text-blue-800'
+                darkMode ? 'text-gray-300' : 'text-gray-700'
               }`}>
                 {formatTemp(day.tempMin)}
               </p>
@@ -288,16 +292,16 @@ function WeatherTabs({ hourlyData, weeklyData, formatTemp, darkMode }) {
 
             {/* Weather Details */}
             <div className={`mt-4 pt-4 border-t ${
-              darkMode ? 'border-slate-700' : 'border-blue-200'
-            } space-y-2`}>
+              darkMode ? 'border-slate-700' : 'border-gray-200'
+            }`}>
               <div className="flex items-center justify-between text-sm">
-                <span className={darkMode ? 'text-gray-400' : 'text-blue-700'}>Rain</span>
+                <span className={darkMode ? 'text-gray-400' : 'text-gray-600'}>Rain</span>
                 <span className={`font-medium ${darkMode ? 'text-gray-200' : 'text-gray-900'}`}>
                   {Math.round(day.precipitation)}%
                 </span>
               </div>
               <div className="flex items-center justify-between text-sm">
-                <span className={darkMode ? 'text-gray-400' : 'text-blue-700'}>Wind</span>
+                <span className={darkMode ? 'text-gray-400' : 'text-gray-600'}>Wind</span>
                 <span className={`font-medium ${darkMode ? 'text-gray-200' : 'text-gray-900'}`}>
                   {day.wind} km/h
                 </span>
@@ -306,7 +310,7 @@ function WeatherTabs({ hourlyData, weeklyData, formatTemp, darkMode }) {
 
             {/* Weather Description */}
             <p className={`mt-3 text-sm capitalize ${
-              darkMode ? 'text-gray-400' : 'text-blue-700'
+              darkMode ? 'text-gray-400' : 'text-gray-600'
             }`}>
               {day.weather}
             </p>

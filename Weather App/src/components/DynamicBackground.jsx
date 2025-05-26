@@ -7,52 +7,52 @@ const getBackgroundStyle = (weather, isDark) => {
     const backgrounds = {
         clear: {
             day: {
-                light: 'from-blue-400 via-blue-300 to-yellow-200',
-                dark: 'from-blue-900 via-blue-800 to-blue-700'
+                light: 'from-sky-400 via-blue-300 to-amber-100',
+                dark: 'from-slate-900 via-blue-900 to-indigo-900'
             },
             night: {
-                light: 'from-blue-900 via-purple-900 to-indigo-900',
-                dark: 'from-gray-900 via-blue-900 to-black'
+                light: 'from-indigo-900 via-purple-800 to-blue-900',
+                dark: 'from-gray-950 via-slate-900 to-blue-950'
             }
         },
         clouds: {
             day: {
-                light: 'from-gray-300 via-blue-200 to-gray-200',
-                dark: 'from-gray-800 via-gray-700 to-gray-600'
+                light: 'from-slate-200 via-blue-100 to-sky-100',
+                dark: 'from-slate-800 via-slate-700 to-blue-900'
             },
             night: {
-                light: 'from-gray-800 via-gray-700 to-gray-600',
-                dark: 'from-gray-900 via-gray-800 to-gray-700'
+                light: 'from-slate-700 via-blue-800 to-indigo-900',
+                dark: 'from-slate-950 via-slate-900 to-blue-950'
             }
         },
         rain: {
             day: {
-                light: 'from-gray-400 via-blue-400 to-gray-500',
-                dark: 'from-gray-800 via-blue-800 to-gray-700'
+                light: 'from-slate-300 via-blue-200 to-sky-200',
+                dark: 'from-slate-800 via-blue-800 to-indigo-900'
             },
             night: {
-                light: 'from-gray-800 via-blue-900 to-gray-900',
-                dark: 'from-gray-900 via-blue-900 to-black'
+                light: 'from-slate-800 via-blue-900 to-indigo-950',
+                dark: 'from-slate-950 via-blue-950 to-indigo-950'
             }
         },
         snow: {
             day: {
-                light: 'from-blue-100 via-blue-50 to-gray-100',
-                dark: 'from-blue-900 via-gray-800 to-gray-700'
+                light: 'from-sky-100 via-blue-50 to-slate-50',
+                dark: 'from-slate-800 via-blue-900 to-indigo-900'
             },
             night: {
-                light: 'from-blue-900 via-gray-800 to-gray-900',
-                dark: 'from-gray-900 via-blue-900 to-black'
+                light: 'from-slate-700 via-blue-800 to-indigo-900',
+                dark: 'from-slate-950 via-blue-950 to-indigo-950'
             }
         },
         thunderstorm: {
             day: {
-                light: 'from-gray-600 via-purple-600 to-gray-700',
-                dark: 'from-gray-900 via-purple-900 to-gray-800'
+                light: 'from-slate-600 via-purple-600 to-indigo-700',
+                dark: 'from-slate-900 via-purple-900 to-indigo-950'
             },
             night: {
-                light: 'from-gray-900 via-purple-900 to-black',
-                dark: 'from-black via-purple-900 to-gray-900'
+                light: 'from-slate-900 via-purple-900 to-indigo-950',
+                dark: 'from-gray-950 via-purple-950 to-indigo-950'
             }
         }
     };

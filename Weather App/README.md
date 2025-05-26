@@ -1,38 +1,42 @@
-# React + Vite
+# Weather APP
 
-## Weather APP
-Weather App is a weather forecasting application built with React.js, providing real-time weather data for cities around the world. It allows users to search for weather by city and view detailed weather conditions such as temperature, humidity, and more.
+A beautiful, modern weather forecasting app built with React and Tailwind CSS. Get real-time weather, interactive charts, light/dark mode, and more for any city worldwide.
 
 ---
 
 ## Features
+- 🌤️ Real-time weather for any city
+- 📊 Interactive charts for temperature, precipitation, and wind
+- 🌓 Light & dark mode toggle
+- ⭐ Favorite cities for quick access
+- 🗺️ Weather map with marker and popup
+- 🔍 Smart search with suggestions and geolocation
+- 🕒 Last updated timestamp
+- ⚡ Fast, responsive, and mobile-friendly
+- 🦾 Accessible and keyboard-friendly
 
-- Search for weather by city name.
-- View real-time weather details like temperature, humidity, and weather description.
-- See additional details such as "Feels Like", "Min Temp", "Max Temp", and "Humidity".
-- Show a loading spinner while fetching data.
-- Display an error message if an invalid city is entered.
+---
+
+## Screenshots
+<!-- Add your screenshots here -->
+
+---
+
+## Setup
+1. Clone the repo
+2. Run `npm install`
+3. Get an API key from [OpenWeatherMap](https://openweathermap.org/api)
+4. Replace the placeholder API_KEY in `WeatherApp.jsx` with your key
+5. Run `npm run dev` and open [localhost:5173](http://localhost:5173)
 
 ---
 
 ## Tech Stack
-
-- **Frontend**: React.js, Tailwind CSS
-- **API**: OpenWeatherMap API (Weather data)
-- **State Management**: React hooks (`useState`, `useEffect`)
-- **Icons**: React Icons (e.g., `IoMdSearch`, `ImSpinner8`)
+- **Frontend:** React.js, Tailwind CSS, Framer Motion
+- **API:** OpenWeatherMap
+- **Maps:** Leaflet.js
 
 ---
 
-### Live Demo
+## Live Demo
 https://weather-api-sepia-eta.vercel.app/
-
----
-
-![App Screenshot](https://github.com/RishavK010/Mini-Projects/blob/f8c8a1a45f5e556e69ccacd25e65555633ce673c/Weather%20App/public/Screenshot%202025-01-19%20at%203.45.41%E2%80%AFPM.png)
-
----
-
-### Set up the OpenWeatherMap API:
-- Get an API key from OpenWeatherMap.
-- Replace the placeholder API_KEY in weatherApp.jsx with your actual key.

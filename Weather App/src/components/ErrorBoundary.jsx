@@ -35,6 +35,12 @@ class ErrorBoundary extends React.Component {
                         >
                             Refresh Page
                         </button>
+                        <button
+                            onClick={() => window.location.href = '/'}
+                            className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors ml-2"
+                        >
+                            Go Home
+                        </button>
                         {process.env.NODE_ENV === 'development' && (
                             <details className="mt-4 text-left">
                                 <summary className="cursor-pointer text-sm text-gray-300">

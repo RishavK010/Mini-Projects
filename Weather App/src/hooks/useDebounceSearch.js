@@ -24,14 +24,24 @@ export const useDebounceSearch = (initialValue = '') => {
             const data = await response.json();
             
             // Format suggestions to include state and country
-            const formattedSuggestions = data.map(city => ({
-                name: city.name,
-                state: city.state,
-                country: city.country,
-                lat: city.lat,
-                lon: city.lon,
-                displayName: `${city.name}${city.state ? `, ${city.state}` : ''}, ${city.country}`
-            }));
+            const formattedSuggestions = data
+                .filter(city => {
+                    // Only include city, town, or village (fallback: always include if type is missing)
+                    if (!city.name) return false;
+                    if (city.type) {
+                        return ['city', 'town', 'village'].includes(city.type);
+                    }
+                    return true;
+                })
+                .map(city => ({
+                    name: city.name,
+                    state: city.state,
+                    country: city.country,
+                    lat: city.lat,
+                    lon: city.lon,
+                    type: city.type,
+                    displayName: `${city.name}${city.state ? `, ${city.state}` : ''}, ${city.country}${city.type ? ` (${city.type})` : ''}`
+                }));
             
             setSuggestions(formattedSuggestions);
         } catch (error) {

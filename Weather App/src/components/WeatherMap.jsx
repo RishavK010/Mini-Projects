@@ -1,10 +1,22 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+// Fix leaflet's default icon path for production builds
+import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
+import markerIcon from 'leaflet/dist/images/marker-icon.png';
+import markerShadow from 'leaflet/dist/images/marker-shadow.png';
 
-function WeatherMap({ lat, lon, darkMode }) {
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: markerIcon2x,
+  iconUrl: markerIcon,
+  shadowUrl: markerShadow,
+});
+
+function WeatherMap({ lat, lon, darkMode, city, weather }) {
     const mapRef = useRef(null);
     const mapInstanceRef = useRef(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         if (!mapRef.current) return;
@@ -26,14 +38,19 @@ function WeatherMap({ lat, lon, darkMode }) {
                 }
             ).addTo(mapInstanceRef.current);
 
-            // Add marker
-            L.marker([lat, lon]).addTo(mapInstanceRef.current);
+            // Add marker with popup
+            const marker = L.marker([lat, lon]).addTo(mapInstanceRef.current);
+            marker.bindPopup(`<b>${city || 'Location'}</b><br>${weather || ''}`).openPopup();
+
+            mapInstanceRef.current.on('load', () => setLoading(false));
+            setTimeout(() => setLoading(false), 1000); // fallback
         } else {
             // Update existing map view and marker
             mapInstanceRef.current.setView([lat, lon], 10);
             mapInstanceRef.current.eachLayer((layer) => {
                 if (layer instanceof L.Marker) {
                     layer.setLatLng([lat, lon]);
+                    layer.bindPopup(`<b>${city || 'Location'}</b><br>${weather || ''}`);
                 }
                 if (layer instanceof L.TileLayer) {
                     // Update tile layer based on dark mode
@@ -44,6 +61,7 @@ function WeatherMap({ lat, lon, darkMode }) {
                     );
                 }
             });
+            setLoading(false);
         }
 
         // Cleanup function
@@ -53,14 +71,23 @@ function WeatherMap({ lat, lon, darkMode }) {
                 mapInstanceRef.current = null;
             }
         };
-    }, [lat, lon, darkMode]);
+    }, [lat, lon, darkMode, city, weather]);
 
     return (
-        <div 
-            ref={mapRef} 
-            className="w-full h-[400px] rounded-xl overflow-hidden shadow-lg"
-            style={{ background: darkMode ? '#242424' : '#f0f0f0' }}
-        />
+        <div className="relative w-full h-[400px] rounded-xl overflow-hidden shadow-lg">
+            {loading && (
+                <div className="absolute inset-0 flex items-center justify-center bg-black/10 z-20">
+                    <div className="w-10 h-10 border-4 border-blue-400 border-t-transparent rounded-full animate-spin" aria-label="Loading map"></div>
+                </div>
+            )}
+            <div
+                ref={mapRef}
+                className="w-full h-full"
+                aria-label="Weather map"
+                tabIndex={0}
+                style={{ background: darkMode ? '#242424' : '#f0f0f0' }}
+            />
+        </div>
     );
 }
 
